@@ -13,3 +13,4 @@ dist-artifact
 # local copies placed here.
 demo-assets/books/*.pdf
 demo-assets-artifact/books/pages/
+.vercel

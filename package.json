@@ -26,7 +26,7 @@
     "@radix-ui/react-tabs": "^1.2.1",
     "@radix-ui/react-tooltip": "^1.4.1",
     "@supabase/supabase-js": "^2.118.0",
-    "@vercel/og": "^1.0.3",
+    "@vercel/og": "0.11.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "idb-keyval": "^6.3.0",
