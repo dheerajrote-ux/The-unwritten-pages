@@ -547,8 +547,11 @@ export class SupabaseApi implements DataApi {
     if (links.length) {
       const { error: cErr } = await this.sb.from("book_purchase_links").update({ is_primary: false }).eq("book_id", book.id);
       if (cErr) fail(cErr);
-      const rows = links.map((l, i) => ({ ...l, book_id: book.id, display_order: i, created_at: undefined, updated_at: undefined }));
-      const { error: uErr } = await this.sb.from("book_purchase_links").upsert(rows, { onConflict: "id" });
+      // Drop timestamp keys entirely: for multi-row upserts supabase-js sends a
+      // column list built from every key (even undefined ones), and PostgREST
+      // would write NULL into them. defaultToNull: false keeps DB defaults.
+      const rows = links.map(({ created_at: _c, updated_at: _u, ...l }, i) => ({ ...l, book_id: book.id, display_order: i }));
+      const { error: uErr } = await this.sb.from("book_purchase_links").upsert(rows, { onConflict: "id", defaultToNull: false });
       if (uErr) {
         if (uErr.code === "23514") throw new ApiError("One of the purchase links isn't a valid https Amazon URL.");
         fail(uErr);
@@ -661,7 +664,7 @@ export class SupabaseApi implements DataApi {
         const { created_at: _c, ...rest } = r;
         return { ...rest, publication_id: null, placement: p.placement_key, display_order: i };
       });
-      const { error: uErr } = await this.sb.from("publication_book_recommendations").upsert(rows, { onConflict: "id" });
+      const { error: uErr } = await this.sb.from("publication_book_recommendations").upsert(rows, { onConflict: "id", defaultToNull: false });
       if (uErr) fail(uErr);
     }
   }
