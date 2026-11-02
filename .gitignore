@@ -1,0 +1,15 @@
+node_modules
+dist
+dist-demo
+.env
+.env.local
+*.log
+supabase/.temp
+.fntest
+dist-artifact
+
+# The essays themselves are never committed to this (public) repository.
+# Production serves them from private Supabase storage; demo builds read
+# local copies placed here.
+demo-assets/books/*.pdf
+demo-assets-artifact/books/pages/

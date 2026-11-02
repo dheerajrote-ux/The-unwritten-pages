@@ -1,0 +1,21 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/api/meta?page=home" },
+    { "source": "/library", "destination": "/api/meta?page=library" },
+    { "source": "/about", "destination": "/api/meta?page=about" },
+    { "source": "/library/:slug", "destination": "/api/meta?page=publication&slug=:slug" },
+    { "source": "/books", "destination": "/api/meta?page=books" },
+    { "source": "/books/:slug", "destination": "/api/meta?page=book&slug=:slug" },
+    { "source": "/((?!assets/|api/|og/).*)", "destination": "/app.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    }
+  ]
+}

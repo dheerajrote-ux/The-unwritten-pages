@@ -1,0 +1,10 @@
+# Minimal Supabase CLI config for this project.
+# `supabase link --project-ref <ref>` then `supabase db push` and
+# `supabase functions deploy request-download reader-access`.
+project_id = "digital-library"
+
+[functions.request-download]
+verify_jwt = false
+
+[functions.reader-access]
+verify_jwt = false

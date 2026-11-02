@@ -1,0 +1,178 @@
+{
+  "categories": [
+    {
+      "name": "Relationships",
+      "slug": "relationships",
+      "description": "On the people who stay, the people who drift, and what they leave behind.",
+      "display_order": 1
+    },
+    {
+      "name": "Growing Up",
+      "slug": "growing-up",
+      "description": "On childhood, adulthood and the distance between them.",
+      "display_order": 2
+    },
+    {
+      "name": "Inner Life",
+      "slug": "inner-life",
+      "description": "On the feelings we carry quietly and rarely say out loud.",
+      "display_order": 3
+    },
+    {
+      "name": "Resilience",
+      "slug": "resilience",
+      "description": "On patience, permission and making room for yourself.",
+      "display_order": 4
+    }
+  ],
+  "publications": [
+    {
+      "file": "books/the-person-i-once-needed.pdf",
+      "cover": "books/covers/the-person-i-once-needed.png",
+      "slug": "the-person-i-once-needed",
+      "title": "The Person I Once Needed",
+      "description": "There comes a quiet moment when you realise nobody is coming to fix things for you. An essay on growing up, standing on your own, and slowly becoming the support you once looked for in others.",
+      "category": "growing-up",
+      "author": "Dheeraj Rote",
+      "language": "en",
+      "tags": [
+        "growing up",
+        "self-reliance"
+      ],
+      "featured": true,
+      "status": "published"
+    },
+    {
+      "file": "books/if-all-the-seats-are-taken-take-the-stage.pdf",
+      "cover": "books/covers/if-all-the-seats-are-taken-take-the-stage.png",
+      "slug": "if-all-the-seats-are-taken-take-the-stage",
+      "title": "If All the Seats Are Taken, Take the Stage",
+      "description": "We spend years waiting to be noticed, invited and given a chance. An essay on dropping the habit of waiting for permission and creating your own place instead.",
+      "category": "resilience",
+      "author": "Dheeraj Rote",
+      "language": "en",
+      "tags": [
+        "courage",
+        "work",
+        "permission"
+      ],
+      "featured": false,
+      "status": "published"
+    },
+    {
+      "file": "books/strangers-who-know-all-your-stories.pdf",
+      "cover": "books/covers/strangers-who-know-all-your-stories.png",
+      "slug": "strangers-who-know-all-your-stories",
+      "title": "Strangers Who Know All Your Stories",
+      "description": "Some friendships don't end with a fight; they fade into birthday wishes and festival messages. An essay on the people who once knew everything about your day.",
+      "category": "relationships",
+      "author": "Dheeraj Rote",
+      "language": "en",
+      "tags": [
+        "friendship",
+        "distance"
+      ],
+      "featured": false,
+      "status": "published"
+    },
+    {
+      "file": "books/surrounded-by-everyone-understood-by-no-one.pdf",
+      "cover": "books/covers/surrounded-by-everyone-understood-by-no-one.png",
+      "slug": "surrounded-by-everyone-understood-by-no-one",
+      "title": "Surrounded by Everyone, Understood by No One",
+      "description": "You can sit in a room full of people and still feel unseen. An essay on the different versions of ourselves we show the world, and the wish to be understood without explaining.",
+      "category": "inner-life",
+      "author": "Dheeraj Rote",
+      "language": "en",
+      "tags": [
+        "loneliness",
+        "being understood"
+      ],
+      "featured": false,
+      "status": "published"
+    },
+    {
+      "file": "books/the-childhood-we-were-in-a-hurry-to-leave.pdf",
+      "cover": "books/covers/the-childhood-we-were-in-a-hurry-to-leave.png",
+      "slug": "the-childhood-we-were-in-a-hurry-to-leave",
+      "title": "The Childhood We Were in a Hurry to Leave",
+      "description": "As children we couldn't wait to grow up; as adults we wish we could go back. An essay on cricket in the lane, lazy Sundays, and the days we didn't know we'd miss.",
+      "category": "growing-up",
+      "author": "Dheeraj Rote",
+      "language": "en",
+      "tags": [
+        "childhood",
+        "nostalgia"
+      ],
+      "featured": false,
+      "status": "published"
+    },
+    {
+      "file": "books/the-first-flower-a-man-receives.pdf",
+      "cover": "books/covers/the-first-flower-a-man-receives.png",
+      "slug": "the-first-flower-a-man-receives",
+      "title": "The First Flower a Man Receives",
+      "description": "Be strong, don't cry, handle it. An essay on the feelings men are taught to keep to themselves, and why appreciation shouldn't wait until it's too late.",
+      "category": "inner-life",
+      "author": "Dheeraj Rote",
+      "language": "en",
+      "tags": [
+        "men",
+        "emotions",
+        "appreciation"
+      ],
+      "featured": false,
+      "status": "published"
+    },
+    {
+      "file": "books/sometimes-all-you-need-is-patience.pdf",
+      "cover": "books/covers/sometimes-all-you-need-is-patience.png",
+      "slug": "sometimes-all-you-need-is-patience",
+      "title": "Sometimes, All You Need Is Patience",
+      "description": "We want answers, results and happiness right away. An essay on staying steady while life takes its time, and trusting what grows beneath the surface.",
+      "category": "resilience",
+      "author": "Dheeraj Rote",
+      "language": "en",
+      "tags": [
+        "patience",
+        "growth"
+      ],
+      "featured": false,
+      "status": "published"
+    },
+    {
+      "file": "books/the-people-we-remember-and-the-people-they-become.pdf",
+      "cover": "books/covers/the-people-we-remember-and-the-people-they-become.png",
+      "slug": "the-people-we-remember-and-the-people-they-become",
+      "title": "The People We Remember, and the People They Become",
+      "description": "Not everyone we lose is gone; sometimes life simply changes them, and us. An essay on old friends, familiar faces and the versions of people we hold on to.",
+      "category": "relationships",
+      "author": "Dheeraj Rote",
+      "language": "en",
+      "tags": [
+        "change",
+        "friendship",
+        "memory"
+      ],
+      "featured": false,
+      "status": "published"
+    },
+    {
+      "file": "books/not-everyone-is-meant-to-stay.pdf",
+      "cover": "books/covers/not-everyone-is-meant-to-stay.png",
+      "slug": "not-everyone-is-meant-to-stay",
+      "title": "Not Everyone Is Meant to Stay",
+      "description": "Love isn't always measured by how long someone stays. An essay on goodbyes that never get said, and on being grateful for the people who were part of your story.",
+      "category": "relationships",
+      "author": "Dheeraj Rote",
+      "language": "en",
+      "tags": [
+        "relationships",
+        "letting go",
+        "gratitude"
+      ],
+      "featured": false,
+      "status": "published"
+    }
+  ]
+}
