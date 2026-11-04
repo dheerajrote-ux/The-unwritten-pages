@@ -103,7 +103,7 @@ export function LeadsPage() {
           <EmptyState icon={<Users />} title={filtered ? "No leads match these filters" : "No leads yet"} description={filtered ? "Try widening the date range or clearing the search." : "Leads appear here when readers download a publication."} />
         ) : (
           <>
-            <div className="overflow-x-auto">
+            <div className="relative overflow-x-auto">
               <table className="w-full min-w-[900px] text-[13px]">
                 <thead>
                   <tr className="border-b border-line bg-admin-bg text-left text-[11.5px] uppercase tracking-wide text-muted">

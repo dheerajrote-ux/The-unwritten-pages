@@ -18,7 +18,7 @@ export function Badge({ className, tone = "neutral", children }: { className?: s
 }
 
 export function Card({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("rounded-lg border border-line bg-surface shadow-card", className)} {...props} />;
+  return <div className={cn("min-w-0 rounded-lg border border-line bg-surface shadow-card", className)} {...props} />;
 }
 
 export function Skeleton({ className }: { className?: string }) {

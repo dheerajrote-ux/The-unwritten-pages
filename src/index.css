@@ -53,6 +53,12 @@
 }
 
 @layer base {
+  /* Grid items default to min-width:auto, so one long unbreakable line or a
+     form field's intrinsic width can push a column past a phone screen.
+     Utilities (e.g. min-w-[…]) still override this. */
+  .grid > * {
+    min-width: 0;
+  }
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -139,5 +145,17 @@
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* iOS Safari zooms the whole page when a focused field's text is under 16px,
+   leaving the layout zoomed in after the keyboard closes. Touch devices get
+   16px form text; desktop keeps the compact sizes. Unlayered so it wins over
+   Tailwind utilities. */
+@media (pointer: coarse) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]),
+  select,
+  textarea {
+    font-size: max(16px, 1em);
   }
 }

@@ -75,7 +75,7 @@ export function BookCategoriesPage() {
         {error ? <ErrorState message={error} onRetry={reload} /> : loading ? <div className="space-y-2 p-4">{Array.from({ length: 3 }, (_, i) => <div key={i} className="skeleton h-12" />)}</div> : !data?.length ? (
           <EmptyState icon={<FolderTree />} title="No book categories yet" action={<Button onClick={openNew}><Plus /> Add category</Button>} />
         ) : (
-          <div className="overflow-x-auto">
+          <div className="relative overflow-x-auto">
             <table className="w-full min-w-[640px] text-[13px]">
               <thead>
                 <tr className="border-b border-line bg-admin-bg text-left text-[11.5px] uppercase tracking-wide text-muted">

@@ -84,7 +84,7 @@ export function BookAnalyticsPage() {
       </div>
 
       <Panel className="mt-6" title="Book-specific performance" actions={<Button variant="outline" size="sm" onClick={() => exportCsv("books")} disabled={!data?.books.length}><Download /> Export CSV</Button>}>
-        <div className="-mx-5 overflow-x-auto sm:-mx-6">
+        <div className="relative -mx-5 overflow-x-auto sm:-mx-6">
           <table className="w-full min-w-[700px] text-[13px]">
             <thead>
               <tr className="border-y border-line bg-admin-bg text-left text-[11.5px] uppercase tracking-wide text-muted">

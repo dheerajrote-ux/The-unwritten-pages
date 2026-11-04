@@ -29,7 +29,7 @@ export function BookCarousel({ books, surface }: { books: Book[]; surface: Place
   const scroll = (dir: 1 | -1) => track.current?.scrollBy({ left: dir * track.current.clientWidth * 0.85, behavior: "smooth" });
   return (
     <div className="relative">
-      <div ref={track} onScroll={update} className="-mx-5 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-4 scrollbar-thin sm:-mx-8 sm:px-8" role="list">
+      <div ref={track} onScroll={update} className="relative -mx-5 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-4 scrollbar-thin sm:-mx-8 sm:px-8" role="list">
         {books.map((b) => (
           <div key={b.id} role="listitem" className="w-[78%] shrink-0 snap-start sm:w-[45%] lg:w-[30%] xl:w-[23%]">
             <BookCard book={b} surface={surface} />

@@ -33,7 +33,10 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-5 sm:px-8">
-        <Brand />
+        {/* On phones an open search takes the whole row. */}
+        <div className={cn("min-w-0", searchOpen && "hidden sm:block")}>
+          <Brand />
+        </div>
         <nav className="ml-6 hidden items-center gap-1 md:flex" aria-label="Main">
           {NAV.map((n) => (
             <NavLink
@@ -46,10 +49,10 @@ export function SiteHeader() {
             </NavLink>
           ))}
         </nav>
-        <div className="ml-auto flex items-center gap-1">
+        <div className={cn("ml-auto flex items-center gap-1", searchOpen && "min-w-0 flex-1 sm:flex-none")}>
           {searchOpen ? (
-            <form onSubmit={submit} className="flex items-center" role="search">
-              <div className="relative">
+            <form onSubmit={submit} className="flex min-w-0 flex-1 items-center" role="search">
+              <div className="relative min-w-0 flex-1">
                 <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted" />
                 <input
                   ref={inputRef}
@@ -58,7 +61,7 @@ export function SiteHeader() {
                   onKeyDown={(e) => e.key === "Escape" && setSearchOpen(false)}
                   placeholder="Search by title…"
                   aria-label="Search publications"
-                  className="h-9 w-48 rounded-full border border-line-strong bg-surface pl-9 pr-3 text-sm outline-none focus:border-primary sm:w-64"
+                  className="h-9 w-full rounded-full border border-line-strong bg-surface pl-9 pr-3 text-sm outline-none focus:border-primary sm:w-64"
                 />
               </div>
               <button type="button" onClick={() => setSearchOpen(false)} className="ml-1 grid size-9 place-items-center rounded-full text-muted hover:bg-black/5" aria-label="Close search">
@@ -66,7 +69,7 @@ export function SiteHeader() {
               </button>
             </form>
           ) : (
-            <button onClick={() => setSearchOpen(true)} className="grid size-9 place-items-center rounded-full text-secondary transition-colors hover:bg-black/5 hover:text-ink" aria-label="Search">
+            <button onClick={() => { setSearchOpen(true); setMenuOpen(false); }} className="grid size-9 place-items-center rounded-full text-secondary transition-colors hover:bg-black/5 hover:text-ink" aria-label="Search">
               <Search className="size-[18px]" />
             </button>
           )}

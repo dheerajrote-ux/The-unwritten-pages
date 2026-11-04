@@ -76,7 +76,7 @@ export function RankBars({ rows, valueLabel }: { rows: { label: string; value: n
       {rows.map((r) => (
         <li key={r.label} className="group" title={`${r.label}: ${formatNumber(r.value)} ${valueLabel.toLowerCase()}`}>
           <div className="mb-1.5 flex items-baseline justify-between gap-3 text-[13px]">
-            <span className="truncate text-ink">{r.label}</span>
+            <span className="min-w-0 truncate text-ink">{r.label}</span>
             <span className="shrink-0 font-semibold tabular-nums text-ink">{formatNumber(r.value)}</span>
           </div>
           <div className="h-2 rounded-full bg-[#f0f1f4]">

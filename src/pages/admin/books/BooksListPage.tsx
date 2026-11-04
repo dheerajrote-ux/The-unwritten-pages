@@ -86,7 +86,7 @@ export function BooksListPage() {
         ) : !rows.length ? (
           <EmptyState icon={<BookMarked />} title={data?.length ? "No books match these filters" : "No books yet"} description={data?.length ? "Try a different status, category or search." : "Add your first book to start cross-selling."} action={!data?.length ? <Button asChild><Link to="/admin/books/new"><Plus /> Add book</Link></Button> : undefined} />
         ) : (
-          <div className="overflow-x-auto">
+          <div className="relative overflow-x-auto">
             <table className="w-full min-w-[980px] text-[13px]">
               <thead>
                 <tr className="border-b border-line bg-admin-bg text-left text-[11.5px] uppercase tracking-wide text-muted">

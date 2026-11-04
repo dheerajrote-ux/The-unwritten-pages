@@ -103,7 +103,7 @@ export function RecommendationsPage() {
         {recs.error ? <ErrorState message={recs.error} onRetry={recs.reload} /> : loading ? <div className="space-y-2 p-4">{Array.from({ length: 5 }, (_, i) => <div key={i} className="skeleton h-12" />)}</div> : !rows.length ? (
           <EmptyState icon={<Sparkles />} title="No recommendations here yet" description="Without manual rules, placements fall back to featured books." action={<Button onClick={() => open()}><Plus /> Add recommendation</Button>} />
         ) : (
-          <div className="overflow-x-auto">
+          <div className="relative overflow-x-auto">
             <table className="w-full min-w-[920px] text-[13px]">
               <thead>
                 <tr className="border-b border-line bg-admin-bg text-left text-[11.5px] uppercase tracking-wide text-muted">

@@ -87,7 +87,9 @@ export function BookDetailView({ book, preview }: { book: Book; preview?: boolea
             )}
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <AmazonPurchaseButton book={book} surface="book_detail" size="lg" />
-              <Button variant="ghost" size="lg" onClick={() => document.getElementById("purchase")?.scrollIntoView({ behavior: "smooth" })}>All buying options</Button>
+              {links.length > 1 && (
+                <Button variant="ghost" size="lg" onClick={() => document.getElementById("purchase")?.scrollIntoView({ behavior: "smooth" })}>All buying options</Button>
+              )}
             </div>
             {links.length > 0 && <PurchaseFinePrint className="mt-3" />}
           </div>

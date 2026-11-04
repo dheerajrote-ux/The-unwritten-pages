@@ -393,16 +393,16 @@ export function BookEditor() {
       <div className="fixed inset-x-0 bottom-0 z-20 border-t border-line bg-surface/95 backdrop-blur lg:left-60">
         <div className="mx-auto flex max-w-[1280px] flex-wrap items-center gap-2 px-4 py-3 sm:px-8">
           <p className="mr-auto hidden text-[12.5px] text-muted sm:block">{dirty ? "Unsaved changes" : isNew ? "Not saved yet" : "All changes saved"}</p>
-          <Button variant="ghost" asChild><Link to="/admin/books">Cancel</Link></Button>
+          <Button variant="ghost" asChild className="hidden sm:inline-flex"><Link to="/admin/books">Cancel</Link></Button>
           {live ? (
             <>
-              <Button variant="outline" onClick={() => setConfirmUnpublish(true)} disabled={!!saving}>Unpublish</Button>
-              <Button onClick={() => persist("save")} loading={saving === "save"} disabled={!!saving && saving !== "save"}>Save changes</Button>
+              <Button className="flex-1 sm:flex-none" variant="outline" onClick={() => setConfirmUnpublish(true)} disabled={!!saving}>Unpublish</Button>
+              <Button className="flex-1 sm:flex-none" onClick={() => persist("save")} loading={saving === "save"} disabled={!!saving && saving !== "save"}>Save changes</Button>
             </>
           ) : (
             <>
-              <Button variant="outline" onClick={() => persist("draft")} loading={saving === "draft"} disabled={!!saving && saving !== "draft"}>Save as draft</Button>
-              <Button onClick={() => persist("publish")} loading={saving === "publish"} disabled={!!saving && saving !== "publish"}>Publish now</Button>
+              <Button className="flex-1 sm:flex-none" variant="outline" onClick={() => persist("draft")} loading={saving === "draft"} disabled={!!saving && saving !== "draft"}>Save as draft</Button>
+              <Button className="flex-1 sm:flex-none" onClick={() => persist("publish")} loading={saving === "publish"} disabled={!!saving && saving !== "publish"}>Publish now</Button>
             </>
           )}
         </div>

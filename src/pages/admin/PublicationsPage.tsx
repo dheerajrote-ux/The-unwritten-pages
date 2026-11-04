@@ -126,7 +126,7 @@ export function PublicationsPage() {
             action={!data?.length ? <Button asChild><Link to="/admin/publications/new"><Plus /> Add new publication</Link></Button> : undefined}
           />
         ) : (
-          <div className="overflow-x-auto">
+          <div className="relative overflow-x-auto">
             <table className="w-full min-w-[860px] text-[13px]">
               <thead>
                 <tr className="border-b border-line bg-admin-bg text-left text-[11.5px] uppercase tracking-wide text-muted">

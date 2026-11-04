@@ -85,7 +85,7 @@ export function CategoriesPage() {
         ) : !data?.length ? (
           <EmptyState icon={<FolderTree />} title="No categories yet" description="Categories are required before a publication can be published." action={<Button onClick={openNew}><Plus /> Add category</Button>} />
         ) : (
-          <div className="overflow-x-auto">
+          <div className="relative overflow-x-auto">
             <table className="w-full min-w-[720px] text-[13px]">
               <thead>
                 <tr className="border-b border-line bg-admin-bg text-left text-[11.5px] uppercase tracking-wide text-muted">

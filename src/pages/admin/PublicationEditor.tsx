@@ -578,7 +578,7 @@ export function PublicationEditor() {
 
           {/* 5. SEO */}
           <Section id="seo" step={5} title="SEO settings" description="Leave blank to use sensible defaults from the publication details.">
-            <div className="grid gap-5 md:grid-cols-2">
+            <div className="grid gap-5 md:grid-cols-2 [&>*]:min-w-0">
               <Field label="SEO page title" htmlFor="f-seo-title" optional hint={`${(form.seo.seo_title ?? "").length}/70 · Default: ${form.title || "publication title"}`}>
                 <Input value={form.seo.seo_title ?? ""} placeholder={form.title} maxLength={120} onChange={(e) => set("seo", { ...form.seo, seo_title: e.target.value })} />
               </Field>
@@ -649,23 +649,23 @@ export function PublicationEditor() {
       <div className="fixed inset-x-0 bottom-0 z-20 border-t border-line bg-surface/95 backdrop-blur lg:left-60">
         <div className="mx-auto flex max-w-[1280px] flex-wrap items-center gap-2 px-4 py-3 sm:px-8">
           <p className="mr-auto hidden text-[12.5px] text-muted sm:block">{dirty ? "Unsaved changes" : isNew ? "Not saved yet" : "All changes saved"}</p>
-          <Button variant="ghost" asChild>
+          <Button variant="ghost" asChild className="hidden sm:inline-flex">
             <Link to="/admin/publications">Cancel</Link>
           </Button>
           {isLive ? (
             <>
-              <Button variant="outline" onClick={() => setConfirmUnpublish(true)} disabled={!!saving}>Unpublish</Button>
-              <Button onClick={() => persist("save")} loading={saving === "save"} disabled={!!saving && saving !== "save"}>Save changes</Button>
+              <Button className="flex-1 sm:flex-none" variant="outline" onClick={() => setConfirmUnpublish(true)} disabled={!!saving}>Unpublish</Button>
+              <Button className="flex-1 sm:flex-none" onClick={() => persist("save")} loading={saving === "save"} disabled={!!saving && saving !== "save"}>Save changes</Button>
             </>
           ) : (
             <>
-              <Button variant="outline" onClick={() => persist("draft")} loading={saving === "draft"} disabled={!!saving && saving !== "draft"}>
+              <Button className="flex-1 sm:flex-none" variant="outline" onClick={() => persist("draft")} loading={saving === "draft"} disabled={!!saving && saving !== "draft"}>
                 Save as draft
               </Button>
-              <Button variant="outline" onClick={() => setScheduleOpen(true)} disabled={!!saving}>
+              <Button className="flex-1 sm:flex-none" variant="outline" onClick={() => setScheduleOpen(true)} disabled={!!saving}>
                 <CalendarClock /> Schedule
               </Button>
-              <Button onClick={() => persist("publish")} loading={saving === "publish"} disabled={!!saving && saving !== "publish"}>
+              <Button className="flex-1 sm:flex-none" onClick={() => persist("publish")} loading={saving === "publish"} disabled={!!saving && saving !== "publish"}>
                 Publish now
               </Button>
             </>

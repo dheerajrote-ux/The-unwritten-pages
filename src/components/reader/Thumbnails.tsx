@@ -42,10 +42,10 @@ export function Thumbnails({ doc, current, onSelect, onClose }: { doc: PdfDoc; c
 
   return (
     <div className="relative shrink-0 border-t border-black/[0.06] bg-white/70 backdrop-blur animate-fade-in">
-      <button onClick={onClose} className="absolute right-2 top-2 z-10 grid size-7 place-items-center rounded-full text-muted hover:bg-black/5 hover:text-ink" aria-label="Close thumbnails">
+      <button onClick={onClose} className="absolute right-2 top-2 z-10 grid size-7 place-items-center rounded-full bg-white/95 text-muted shadow-sm ring-1 ring-black/[0.06] hover:text-ink" aria-label="Close thumbnails">
         <X className="size-4" />
       </button>
-      <div ref={listRef} className="flex gap-3 overflow-x-auto px-4 py-3 scrollbar-thin" role="listbox" aria-label="Pages">
+      <div ref={listRef} className="relative flex gap-3 overflow-x-auto py-3 pl-4 pr-12 scrollbar-thin" role="listbox" aria-label="Pages">
         {Array.from({ length: doc.numPages }, (_, i) => {
           const isCurrent = current.includes(i);
           return (

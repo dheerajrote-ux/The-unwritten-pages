@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink, Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { BarChart3, BookOpen, BookMarked, ChevronDown, ChevronRight, ExternalLink, FolderTree, LayoutDashboard, LogOut, Menu, Settings, Users, X } from "lucide-react";
 import { api } from "@/data";
@@ -63,9 +63,24 @@ function AdminLayout() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const parts = pathname.replace(/^\/admin\/?/, "").split("/").filter(Boolean);
-  const crumbs = parts.filter((p) => CRUMBS[p]).map((p) => CRUMBS[p]);
   const inBooks = pathname.startsWith("/admin/books");
+  const BOOK_CRUMBS: Record<string, string> = { new: "New book", categories: "Book categories", analytics: "Book analytics" };
+  const crumbs = parts.filter((p) => CRUMBS[p]).map((p) => (inBooks && BOOK_CRUMBS[p]) || CRUMBS[p]);
   const [booksOpen, setBooksOpen] = useState(true);
+
+  // Mobile drawer: close on navigation and Escape, and stop the page behind it scrolling.
+  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   const logout = async () => {
     await api.signOut();
@@ -168,14 +183,18 @@ function AdminLayout() {
           <button onClick={() => setOpen(true)} className="grid size-9 place-items-center rounded-md text-secondary hover:bg-black/5 lg:hidden" aria-label="Open menu">
             <Menu className="size-5" />
           </button>
+          {/* Phones show only the current page; wider screens get the full trail. */}
           <nav aria-label="Breadcrumb" className="flex min-w-0 items-center gap-1.5 text-[13px] text-muted">
-            <Link to="/admin/dashboard" className="hover:text-ink">Admin</Link>
-            {crumbs.map((c, i) => (
-              <span key={i} className="flex items-center gap-1.5">
-                <ChevronRight className="size-3.5" />
-                <span className={cn(i === crumbs.length - 1 && "font-medium text-ink")}>{c}</span>
-              </span>
-            ))}
+            <Link to="/admin/dashboard" className={cn("shrink-0 hover:text-ink", crumbs.length && "hidden sm:inline")}>Admin</Link>
+            {crumbs.map((c, i) => {
+              const last = i === crumbs.length - 1;
+              return (
+                <span key={i} className={cn("min-w-0 items-center gap-1.5", last ? "flex" : "hidden sm:flex")}>
+                  <ChevronRight className="hidden size-3.5 shrink-0 sm:block" />
+                  <span className={cn("truncate whitespace-nowrap", last && "font-medium text-ink")}>{c}</span>
+                </span>
+              );
+            })}
           </nav>
           <DropdownMenu>
             <DropdownMenuTrigger className="ml-auto flex items-center gap-2.5 rounded-full py-1 pl-1 pr-2 hover:bg-black/[0.04]" aria-label="Account menu">

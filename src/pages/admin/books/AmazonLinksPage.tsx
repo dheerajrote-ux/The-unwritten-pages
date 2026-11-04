@@ -90,7 +90,7 @@ export function AmazonLinksPage() {
           {error ? <ErrorState message={error} onRetry={reload} /> : loading ? <div className="space-y-2 p-4">{Array.from({ length: 4 }, (_, i) => <div key={i} className="skeleton h-12" />)}</div> : !rows.length ? (
             <EmptyState icon={<Tag />} title={data?.length ? "No links match" : "No purchase links yet"} description={data?.length ? "Try clearing the filters." : "Add links from a book's edit page (section 5)."} action={!data?.length ? <Button asChild variant="outline"><Link to="/admin/books">Go to books</Link></Button> : undefined} />
           ) : (
-            <div className="overflow-x-auto">
+            <div className="relative overflow-x-auto">
               <table className="w-full min-w-[900px] text-[13px]">
                 <thead>
                   <tr className="border-b border-line bg-admin-bg text-left text-[11.5px] uppercase tracking-wide text-muted">
